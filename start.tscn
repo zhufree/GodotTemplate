@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4fgu7jmpg2mf"]
+
+[ext_resource type="Script" path="res://start.gd" id="1_l52y4"]
+[ext_resource type="AudioStream" uid="uid://dnibetmrqw1jf" path="res://assets/BGM/MenuBGM.mp3" id="2_r5am1"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l52y4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 1, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sample Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSubtitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Sub Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
+
+[node name="MenuButtonGroup" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
+layout_mode = 2
+text = "Play"
+
+[node name="SettingButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
+layout_mode = 2
+text = "Setting"
+
+[node name="CreditButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
+layout_mode = 2
+text = "Credit"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
+layout_mode = 2
+text = "Exit"
+
+[node name="MenuBGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_r5am1")
+bus = &"BGM"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup/CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup/ExitButton" to="." method="_on_exit_button_pressed"]
