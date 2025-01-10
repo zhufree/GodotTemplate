@@ -39,13 +39,13 @@ theme_override_constants/separation = 20
 
 [node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sample Game"
+text = "GAME_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameSubtitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game Sub Title"
+text = "GAME_SUB_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -60,19 +60,19 @@ theme_override_constants/separation = 20
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
 layout_mode = 2
-text = "Play"
+text = "PLAY"
 
 [node name="SettingButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
 layout_mode = 2
-text = "Setting"
+text = "SETTING"
 
 [node name="CreditButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
 layout_mode = 2
-text = "Credit"
+text = "CREDIT"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MenuButtonGroup"]
 layout_mode = 2
-text = "Exit"
+text = "EXIT"
 
 [node name="MenuBGMPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_r5am1")
