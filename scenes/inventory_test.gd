@@ -6,25 +6,28 @@ extends Control
 var test_items = [
 	{
 		"id": "health_potion",
-		"name": "生命药水",
-		"description": "恢复50点生命值",
-		"stack_size": 10,
-		"type": "consumable",
+		"name": "helmet",
+		"description": "A helmet",
+		"icon": preload("res://assets/images/item_helmet.png"),
+		"stack_size": 99,
+		"type": "weapon",
 		"rarity": 1
 	},
 	{
 		"id": "mana_potion",
-		"name": "魔法药水",
-		"description": "恢复30点魔法值",
-		"stack_size": 10,
-		"type": "consumable",
+		"name": "bow",
+		"description": "A bow",
+		"icon": preload("res://assets/images/item_bow.png"),
+		"stack_size": 99,
+		"type": "weapon",
 		"rarity": 1
 	},
 	{
 		"id": "sword",
-		"name": "铁剑",
-		"description": "普通的铁剑",
-		"stack_size": 1,
+		"name": "sword",
+		"description": "A sword",
+		"icon": preload("res://assets/images/item_sword.png"),
+		"stack_size": 99,
 		"type": "weapon",
 		"rarity": 2
 	}
@@ -50,6 +53,7 @@ func create_test_item(item_data: Dictionary) -> InventoryItem:
 	item.id = item_data.id
 	item.name = item_data.name
 	item.description = item_data.description
+	item.icon = item_data.icon
 	item.stack_size = item_data.stack_size
 	item.type = item_data.type
 	item.rarity = item_data.rarity

@@ -8,6 +8,7 @@ var item: InventoryItem = null
 
 func set_item(new_item: InventoryItem) -> void:
 	item = new_item
+	print(item.icon)
 	if item:
 		icon.texture = item.icon
 		update_amount()

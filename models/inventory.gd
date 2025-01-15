@@ -8,7 +8,7 @@ signal item_changed(item: InventoryItem, slot: int)
 signal inventory_updated()
 
 # 属性
-@export var size: int = 20  # 背包大小
+@export var size: int = 45  # 背包大小
 var slots: Array[InventoryItem]  # 物品槽数组
 
 func _init():

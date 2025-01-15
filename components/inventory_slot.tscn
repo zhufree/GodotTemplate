@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="AmountLabel" type="Label" parent="."]
@@ -31,7 +32,6 @@ offset_top = -17.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 12
-text = "99"
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)

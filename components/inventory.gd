@@ -8,7 +8,7 @@ extends Panel
 func _ready() -> void:
 	if not inventory:
 		inventory = Inventory.new()
-		inventory.size = 20
+		inventory.size = 45
 	
 	# 创建物品槽
 	for i in range(inventory.size):

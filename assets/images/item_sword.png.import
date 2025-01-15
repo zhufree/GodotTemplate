@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ne4o774d3f16"
-path="res://.godot/imported/blue_cross.png-799c0ab5b8c6dfcff293d7a422d813d0.ctex"
+uid="uid://8yj8d8i6ne70"
+path="res://.godot/imported/item_sword.png-f17fcabae1857bc8972145c7157ad80f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/blue_cross.png"
-dest_files=["res://.godot/imported/blue_cross.png-799c0ab5b8c6dfcff293d7a422d813d0.ctex"]
+source_file="res://assets/images/item_sword.png"
+dest_files=["res://.godot/imported/item_sword.png-f17fcabae1857bc8972145c7157ad80f.ctex"]
 
 [params]
 
