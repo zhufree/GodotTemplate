@@ -1,8 +1,8 @@
 # save_manager.db
 extends Node
 
-var save_file_path = ProjectSettings.globalize_path("user://") # production
-#var save_file_path = ProjectSettings.globalize_path("res://") # test
+#var save_file_path = ProjectSettings.globalize_path("user://") # production
+var save_file_path = ProjectSettings.globalize_path("res://") # test
 var save_file_name = "save.tres"
 var save_data = SaveData.new()
 
@@ -27,6 +27,7 @@ func verify_save_directory(path: String):
 
 func load_save_data():
 	if FileAccess.file_exists(save_file_path + save_file_name):
+		print(save_file_path + save_file_name)
 		save_data = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
 		print('save data loaded')
 

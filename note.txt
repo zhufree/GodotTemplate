@@ -1,0 +1,59 @@
+# Godot通用模板项目笔记
+
+## 重要更新记录
+2025-01-10: 
+- 创建项目基础结构
+- 实现核心功能
+- 添加README.md文档
+- 将多语言系统从pot格式改为csv格式
+  * 创建translations/strings.csv文件
+  * 更新global.gd添加多语言支持
+  * 修改start.gd使用新的翻译系统
+  * 删除原有的pot文件
+
+## 项目概述
+- 创建日期：2025-01-10
+- 目的：提供Godot游戏开发的基础模板
+- 引擎版本：Godot 4.x
+
+## 核心功能清单
+1. 全局状态管理 (global.gd)
+   - [x] 音量控制
+   - [x] 存档管理
+   
+2. 存档系统 (saved_game.gd)
+   - [x] 基础存档功能
+   - [x] 物品系统支持
+   
+3. 设置系统 (setting.gd, setting.tscn)
+   - [x] 音量设置UI
+   - [x] 设置保存功能
+
+4. 基础场景
+   - [x] 主菜单 (start.tscn)
+   - [x] 主场景 (main.tscn)
+   - [x] 制作人员名单 (credit.tscn)
+
+## 待优化项目
+1. 考虑添加配置文件系统
+2. 添加更多UI主题支持
+3. 扩展存档系统功能
+
+## 文件结构说明
+- assets/: 存放游戏资源
+- *.gd: 核心脚本文件
+- *.tscn: 场景文件
+- *.tres: 资源文件
+
+## 多语言系统说明
+- 使用CSV格式存储多语言文本
+- 文件位置：translations/strings.csv
+- 支持语言：
+  * 英语 (en)
+  * 简体中文 (zh_CN)
+- 使用方法：
+  * 通过Global.tr("key")获取翻译
+  * UI组件需要添加到"translated_ui"组
+  * 实现_on_language_changed()方法处理语言切换
+
+

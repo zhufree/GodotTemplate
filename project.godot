@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
-SaveManager="*res://save_manager.gd"
+Global="*res://scripts/global.gd"
+SaveManager="*res://scripts/save_manager.gd"
 
 [display]
 

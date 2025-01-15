@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5st3inwjty8o"]
+
+[ext_resource type="Theme" uid="uid://j31xq2aihhti" path="res://assets/themes/inventory_theme.tres" id="1_yldjl"]
+[ext_resource type="Script" path="res://scenes/inventory_test.gd" id="2_f152w"]
+[ext_resource type="PackedScene" uid="uid://bq3o8s8ddh6gm" path="res://components/inventory.tscn" id="3_8es5y"]
+
+[node name="InventoryTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yldjl")
+script = ExtResource("2_f152w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="OpenInventoryButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "OPEN_INVENTORY"
+
+[node name="AddItemButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "ADD_ITEM"
+
+[node name="Inventory" parent="." instance=ExtResource("3_8es5y")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/OpenInventoryButton" to="." method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AddItemButton" to="." method="_on_add_item_button_pressed"]

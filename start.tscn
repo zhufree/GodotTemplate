@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bahl2rvbr64vo"]
 
-[ext_resource type="Script" path="res://start.gd" id="1_l52y4"]
+[ext_resource type="Script" path="res://scenes/start.gd" id="1_l52y4"]
 [ext_resource type="AudioStream" uid="uid://dnibetmrqw1jf" path="res://assets/BGM/MenuBGM.mp3" id="2_r5am1"]
 
 [node name="Start" type="Control"]
