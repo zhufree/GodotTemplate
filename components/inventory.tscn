@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq3o8s8ddh6gm"]
+
+[ext_resource type="Theme" uid="uid://j31xq2aihhti" path="res://assets/themes/inventory_theme.tres" id="1_dndpc"]
+[ext_resource type="PackedScene" uid="uid://diolv7l66cnc7" path="res://components/slot.tscn" id="1_qn5hw"]
+[ext_resource type="Texture2D" uid="uid://ne4o774d3f16" path="res://assets/images/blue_cross.png" id="2_63jvr"]
+
+[node name="Panel" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dndpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INVENTORY_TITLE"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_63jvr")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 9
+
+[node name="Slot" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot3" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot4" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot5" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot6" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot7" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot8" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2
+
+[node name="Slot9" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1_qn5hw")]
+layout_mode = 2

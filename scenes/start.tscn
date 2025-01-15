@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bahl2rvbr64vo"]
+[gd_scene load_steps=3 format=3 uid="uid://d4fgu7jmpg2mf"]
 
 [ext_resource type="Script" path="res://start.gd" id="1_l52y4"]
 [ext_resource type="AudioStream" uid="uid://dnibetmrqw1jf" path="res://assets/BGM/MenuBGM.mp3" id="2_r5am1"]
@@ -39,14 +39,12 @@ theme_override_constants/separation = 20
 
 [node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
 text = "GAME_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameSubtitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
 text = "GAME_SUB_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -54,9 +52,7 @@ vertical_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 400
-theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 400
-theme_override_constants/margin_bottom = 100
 
 [node name="MenuButtonGroup" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
