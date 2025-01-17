@@ -1,6 +1,6 @@
 extends PanelContainer
 
-signal action_selected(action_name: String, slot_index: int)
+signal action_selected(action_name: String)
 
 var slot_index: int = -1
 
@@ -56,6 +56,6 @@ func _input(event: InputEvent) -> void:
 				set_process_input(false)
 
 func _on_action_button_pressed(action_id: String) -> void:
-	action_selected.emit(action_id, slot_index)
+	action_selected.emit(action_id)
 	hide()
 	set_process_input(false)

@@ -2,12 +2,23 @@
 
 ## 重要更新记录
 2025-01-17:
-- 更新主题系统 (assets/themes/default_theme.tres)
-  * 添加新的颜色方案：primary, accent, text, bg系列颜色
-  * 扩展UI控件主题支持：Label, LineEdit, TabContainer, TextEdit等
-  * 优化按钮和面板的视觉样式
-  * 统一字体大小和边距设置
-  * 添加悬停和按压状态的视觉反馈
+- 优化主题系统 (assets/themes/default_theme.tres)
+  * 添加CheckButton控件样式
+  * 改进Tree控件的选中效果（半透明背景）
+  * 移除Tree的统一背景样式
+  * 优化控件的视觉层次
+- 扩展主题系统 (assets/themes/default_theme.tres)
+  * 添加CheckBox、MenuButton、Slider和Tree控件样式
+  * 优化弹出菜单和滑块的视觉效果
+  * 统一所有控件的交互反馈
+  * 添加树形控件的导航线和选中效果
+  * 保持扁平化设计风格
+- 完善主题系统 (assets/themes/default_theme.tres)
+  * 添加ScrollBar和ProgressBar控件样式
+  * 修复圆角控件背景透明问题
+  * 优化滚动条和进度条的视觉效果
+  * 添加ScrollContainer面板样式
+  * 统一所有控件的背景色处理
 - 实现物品拖放功能
   * 添加物品拖动时的视觉反馈
   * 实现物品位置交换逻辑

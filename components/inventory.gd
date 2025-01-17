@@ -41,7 +41,7 @@ func _on_item_added(item: InventoryItem, slot: int) -> void:
 	var slot_ui = grid_container.get_child(slot)
 	slot_ui.set_item(item)
 
-func _on_item_removed(item: InventoryItem, slot: int) -> void:
+func _on_item_removed(_item: InventoryItem, slot: int) -> void:
 	var slot_ui = grid_container.get_child(slot)
 	slot_ui.clear_item()
 
@@ -49,7 +49,7 @@ func _on_item_changed(item: InventoryItem, slot: int) -> void:
 	var slot_ui = grid_container.get_child(slot)
 	slot_ui.update_item(item)
 
-func _on_items_swapped(from_slot: int, to_slot: int) -> void:
+func _on_items_swapped(_from_slot: int, _to_slot: int) -> void:
 	_on_inventory_updated()
 
 func _on_inventory_updated() -> void:
