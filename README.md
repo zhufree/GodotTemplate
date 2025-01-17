@@ -60,6 +60,7 @@ CommonTemplate/
 - 支持物品栏数据保存
 - 支持物品拖放交换
 - hover提示
+- 使用`item_action_menu.tscn`实现物品操作
 
 ## 如何使用
 

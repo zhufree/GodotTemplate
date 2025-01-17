@@ -41,7 +41,7 @@ func _on_item_added(item: InventoryItem, slot: int) -> void:
 	var slot_ui = grid_container.get_child(slot)
 	slot_ui.set_item(item)
 
-func _on_item_removed(slot: int) -> void:
+func _on_item_removed(item: InventoryItem, slot: int) -> void:
 	var slot_ui = grid_container.get_child(slot)
 	slot_ui.clear_item()
 
@@ -65,15 +65,20 @@ func _on_item_dropped(from_slot: int, to_slot: int) -> void:
 
 func _on_item_action_requested(action: String, slot_index: int) -> void:
 	var item = inventory.slots[slot_index]
+	var slot_ui = grid_container.get_child(slot_index)
 	if not item:
 		return
 		
 	match action:
 		"use":
 			print("使用物品:", item.name)  # 这里添加使用物品的逻辑
+			item.remove_from_stack(1)
 		"drop":
-			inventory.remove_item(slot_index)
+			item.remove_from_stack(1)
 			print("丢弃物品:", item.name)  # 这里添加丢弃物品的逻辑
+		_:
+			printerr("未知的操作:" + action)
+	slot_ui.update_item(item)
 
 func _can_drop_data(_position: Vector2, _data: Variant) -> bool:
 	return true  # 总是允许拖放，保持鼠标光标不变

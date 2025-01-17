@@ -85,6 +85,12 @@ func _get_drag_data(position: Vector2) -> Variant:
 		preview.position = -preview_size / 2
 		
 		set_drag_preview(control)
+		
+		# 隐藏任何打开的菜单
+		var menu = get_node_or_null("/root/ItemActionMenu")
+		if menu:
+			menu.hide()
+			
 		return {"slot_index": slot_index}
 	return null
 
@@ -97,20 +103,23 @@ func _drop_data(position: Vector2, data: Variant) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT and item:
+		if event.button_index == MOUSE_BUTTON_RIGHT and item:
 			tooltip_panel.hide()
 			# 显示操作菜单
 			var menu = get_node_or_null("/root/ItemActionMenu")
-			if not menu:
-				menu = menu_scene.instantiate()
-				get_tree().root.add_child(menu)
-				menu.name = "ItemActionMenu"
-				menu.action_selected.connect(_on_action_selected)
+			if menu:
+				menu.queue_free() # 删除旧的菜单
+			
+			# 创建新菜单
+			menu = menu_scene.instantiate()
+			get_tree().root.add_child(menu)
+			menu.name = "ItemActionMenu"
+			menu.action_selected.connect(_on_action_selected)
 			
 			# 计算菜单位置（在物品图标右侧）
 			var menu_pos = global_position + Vector2(size.x + 5, 0)
 			menu.show_at_position(menu_pos, slot_index)
 
 func _on_action_selected(action: String, menu_slot_index: int) -> void:
-	if menu_slot_index == slot_index:
-		action_requested.emit(action, slot_index)
+	# 直接发送当前的slot_index，因为菜单是刚刚创建的，所以slot_index一定是正确的
+	action_requested.emit(action, slot_index)
