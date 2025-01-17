@@ -1,3 +1,11 @@
+# 设置界面控制脚本
+# 负责管理游戏设置界面的功能
+# 主要功能：
+# - 音量控制（音效和音乐）
+# - 分辨率设置
+# - 全屏模式切换
+# - 设置的保存和加载
+
 extends Control
 @onready var sound_volume = $MarginContainer/VBoxContainer/HBoxContainer2/SoundVolume
 @onready var music_volume = $MarginContainer/VBoxContainer/HBoxContainer/MusicVolume

@@ -1,6 +1,19 @@
 # Godot通用模板项目笔记
 
 ## 重要更新记录
+2025-01-17:
+- 为所有脚本文件添加了详细的顶部注释说明
+  * components/inventory.gd
+  * components/inventory_slot.gd
+  * scenes/inventory_test.gd
+  * scenes/main.gd
+  * scenes/setting.gd
+  * scenes/start.gd
+- 更新项目结构文档
+  * 完善 README.md 中的目录结构说明
+  * 添加新的组件和场景说明
+  * 更新文件夹组织结构
+
 2025-01-10: 
 - 创建项目基础结构
 - 实现核心功能
@@ -55,5 +68,3 @@
   * 通过Global.tr("key")获取翻译
   * UI组件需要添加到"translated_ui"组
   * 实现_on_language_changed()方法处理语言切换
-
-

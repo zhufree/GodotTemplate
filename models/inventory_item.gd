@@ -1,3 +1,4 @@
+# 背包物品的数据模型
 extends Resource
 class_name InventoryItem
 

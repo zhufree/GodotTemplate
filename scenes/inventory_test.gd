@@ -1,3 +1,11 @@
+# 背包系统测试场景
+# 用于测试背包系统的功能和交互
+# 主要功能：
+# - 提供测试物品数据
+# - 模拟物品添加和移除操作
+# - 测试物品拖放功能
+# - 测试物品堆叠逻辑
+
 extends Control
 
 @onready var inventory_ui = $Inventory

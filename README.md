@@ -7,12 +7,23 @@
 ```
 CommonTemplate/
 ├── assets/                 # 资源文件夹
-├── global.gd              # 全局单例脚本
-├── saved_game.gd         # 存档系统实现
-├── setting.gd            # 游戏设置管理
-├── main.tscn            # 主场景
-├── start.tscn           # 开始菜单场景
-└── credit.tscn          # 制作人员名单场景
+├── components/            # 可重用组件
+│   ├── inventory.gd      # 背包系统核心逻辑
+│   ├── inventory.tscn # 背包界面UI
+│   └── inventory_slot.gd # 背包格子组件
+│   └── inventory_slot.tscn # 背包格子UI
+├── models/               # 3D模型资源
+├── scenes/              # 场景文件
+│   ├── main.tscn       # 主场景
+│   ├── start.tscn      # 开始菜单
+│   ├── credit.tscn     # 制作人员名单
+│   ├── setting.tscn    # 设置界面
+│   └── inventory_test.tscn # 背包系统测试场景
+├── scripts/             # 全局脚本
+│   ├── global.gd       # 全局单例
+│   ├── save_data.gd    # 存档数据结构
+│   └── save_manager.gd # 存档管理器
+└── translations/        # 多语言翻译文件
 ```
 
 ## 核心功能
@@ -43,6 +54,11 @@ CommonTemplate/
 - 使用CSV文件进行多语言翻译
 - 支持多语言切换
 
+## 补充功能
+### 1. 背包系统
+- 基于Godot的Resource系统实现
+- 支持物品栏数据保存
+
 ## 如何使用
 
 1. 克隆此仓库作为新项目的起点
@@ -53,4 +69,3 @@ CommonTemplate/
 ## 依赖
 - Godot 4.x
 - GDScript
-

@@ -1,3 +1,4 @@
+# 背包的数据模型，可用于不同类型的背包
 extends Resource
 class_name Inventory
 
