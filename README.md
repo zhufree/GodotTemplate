@@ -9,10 +9,14 @@ CommonTemplate/
 ├── assets/                 # 资源文件夹
 ├── components/            # 可重用组件
 │   ├── inventory.gd      # 背包系统核心逻辑
-│   ├── inventory.tscn # 背包界面UI
+│   ├── inventory.tscn    # 背包界面UI
 │   └── inventory_slot.gd # 背包格子组件
 │   └── inventory_slot.tscn # 背包格子UI
-├── models/               # 3D模型资源
+│   └── item_action_menu.gd # 物品操作菜单
+│   └── item_action_menu.tscn # 物品操作菜单UI
+├── models/               # 数据模型
+│   ├── inventory_item.gd # 物品数据模型
+│   └── inventory.gd      # 背包数据模型
 ├── scenes/              # 场景文件
 │   ├── main.tscn       # 主场景
 │   ├── start.tscn      # 开始菜单
