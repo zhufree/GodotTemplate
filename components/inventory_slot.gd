@@ -10,6 +10,7 @@
 extends Panel
 
 signal item_dropped(from_slot: int, to_slot: int)
+signal action_requested(action: String, slot_index: int)
 
 var slot_index: int = 0
 var item: InventoryItem = null
@@ -20,10 +21,12 @@ var item: InventoryItem = null
 @onready var tooltip_name = $TooltipPanel/MarginContainer/VBoxContainer/ItemName
 @onready var tooltip_type = $TooltipPanel/MarginContainer/VBoxContainer/ItemType
 @onready var tooltip_description = $TooltipPanel/MarginContainer/VBoxContainer/ItemDescription
+var menu_scene = preload("res://components/item_action_menu.tscn")
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	gui_input.connect(_on_gui_input)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 
 func set_item(new_item: InventoryItem) -> void:
@@ -85,9 +88,29 @@ func _get_drag_data(position: Vector2) -> Variant:
 		return {"slot_index": slot_index}
 	return null
 
-func _can_drop_data(_position: Vector2, _data: Variant) -> bool:
-	return true  # 总是允许拖放，这样鼠标不会显示禁用图标
+func _can_drop_data(_position: Vector2, data: Variant) -> bool:
+	return data is Dictionary and data.has("slot_index")
 
 func _drop_data(position: Vector2, data: Variant) -> void:
 	if data is Dictionary and data.has("slot_index"):
 		item_dropped.emit(data.slot_index, slot_index)
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and item:
+			tooltip_panel.hide()
+			# 显示操作菜单
+			var menu = get_node_or_null("/root/ItemActionMenu")
+			if not menu:
+				menu = menu_scene.instantiate()
+				get_tree().root.add_child(menu)
+				menu.name = "ItemActionMenu"
+				menu.action_selected.connect(_on_action_selected)
+			
+			# 计算菜单位置（在物品图标右侧）
+			var menu_pos = global_position + Vector2(size.x + 5, 0)
+			menu.show_at_position(menu_pos, slot_index)
+
+func _on_action_selected(action: String, menu_slot_index: int) -> void:
+	if menu_slot_index == slot_index:
+		action_requested.emit(action, slot_index)

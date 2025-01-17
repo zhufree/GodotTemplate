@@ -6,3 +6,8 @@ PLAY,Play,开始游戏
 SETTING,Setting,设置
 CREDIT,Credit,制作人员
 QUIT,Quit,退出
+ITEM_ACTION_USE,Use,使用
+ITEM_ACTION_DROP,Drop,丢弃
+ITEM_ACTION_EQUIP,Equip,装备
+ITEM_ACTION_DESTROY,Destroy,销毁
+ITEM_ACTION_GIFT,Gift,赠送

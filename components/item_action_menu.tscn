@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2kkvwagmxsgh"]
+
+[ext_resource type="Script" path="res://components/item_action_menu.gd" id="1_u2k3p"]
+
+[node name="ItemActionMenu" type="PanelContainer"]
+z_index = 6
+custom_minimum_size = Vector2(100, 0)
+offset_right = 100.0
+offset_bottom = 31.0
+script = ExtResource("1_u2k3p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
