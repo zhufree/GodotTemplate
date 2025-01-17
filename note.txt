@@ -2,6 +2,14 @@
 
 ## 重要更新记录
 2025-01-17:
+- 修复物品详情提示框鼠标事件问题
+  * 设置正确的鼠标过滤属性
+  * 优化UI节点的鼠标事件处理
+  * 改进提示框的显示逻辑
+- 添加物品详情悬浮提示功能
+  * 在 inventory_slot.tscn 中添加 TooltipPanel 节点
+  * 更新 inventory_slot.gd 添加提示框显示逻辑
+  * 支持显示物品名称、类型和描述
 - 为所有脚本文件添加了详细的顶部注释说明
   * components/inventory.gd
   * components/inventory_slot.gd

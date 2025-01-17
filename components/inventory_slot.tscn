@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
@@ -31,9 +32,11 @@ offset_left = -14.0
 offset_top = -17.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 1
 theme_override_font_sizes/font_size = 12
 
 [node name="Button" type="Button" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -41,3 +44,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="TooltipPanel" type="PanelContainer" parent="."]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = 70.0
+offset_right = 220.0
+offset_bottom = 120.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TooltipPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TooltipPanel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="ItemName" type="Label" parent="TooltipPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "ITEM_NAME"
+
+[node name="ItemType" type="Label" parent="TooltipPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "ITEM_TYPE"
+
+[node name="HSeparator" type="HSeparator" parent="TooltipPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemDescription" type="Label" parent="TooltipPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "ITEM_DESC"
+autowrap_mode = 2

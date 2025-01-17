@@ -5,6 +5,7 @@
 # - 处理物品的设置和清除
 # - 管理拖放操作
 # - 更新物品堆叠数量显示
+# - 显示物品详情提示框
 
 extends Panel
 
@@ -13,10 +14,17 @@ var item: InventoryItem = null
 
 @onready var icon = $TextureRect
 @onready var amount_label = $AmountLabel
+@onready var tooltip_panel = $TooltipPanel
+@onready var tooltip_name = $TooltipPanel/MarginContainer/VBoxContainer/ItemName
+@onready var tooltip_type = $TooltipPanel/MarginContainer/VBoxContainer/ItemType
+@onready var tooltip_description = $TooltipPanel/MarginContainer/VBoxContainer/ItemDescription
+
+func _ready() -> void:
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 
 func set_item(new_item: InventoryItem) -> void:
 	item = new_item
-	print(item.icon)
 	if item:
 		icon.texture = item.icon
 		update_amount()
@@ -28,6 +36,7 @@ func clear_item() -> void:
 	item = null
 	icon.texture = null
 	amount_label.text = ""
+	tooltip_panel.hide()
 
 func update_item(updated_item: InventoryItem) -> void:
 	item = updated_item
@@ -42,14 +51,14 @@ func update_amount() -> void:
 # 鼠标进入
 func _on_mouse_entered() -> void:
 	if item:
-		# TODO: 显示物品提示信息
-		pass
+		tooltip_name.text = item.name
+		tooltip_type.text = item.type
+		tooltip_description.text = item.description
+		tooltip_panel.show()
 
 # 鼠标离开
 func _on_mouse_exited() -> void:
-	if item:
-		# TODO: 隐藏物品提示信息
-		pass
+	tooltip_panel.hide()
 
 # 点击处理
 func _on_gui_input(event: InputEvent) -> void:
