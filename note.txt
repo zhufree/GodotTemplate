@@ -2,6 +2,12 @@
 
 ## 重要更新记录
 2025-01-17:
+- 更新主题系统 (assets/themes/default_theme.tres)
+  * 添加新的颜色方案：primary, accent, text, bg系列颜色
+  * 扩展UI控件主题支持：Label, LineEdit, TabContainer, TextEdit等
+  * 优化按钮和面板的视觉样式
+  * 统一字体大小和边距设置
+  * 添加悬停和按压状态的视觉反馈
 - 实现物品拖放功能
   * 添加物品拖动时的视觉反馈
   * 实现物品位置交换逻辑

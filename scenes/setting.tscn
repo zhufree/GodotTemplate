@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccay78xjx1ksa"]
+[gd_scene load_steps=3 format=3 uid="uid://ccay78xjx1ksa"]
 
-[ext_resource type="Script" path="res://setting.gd" id="1_uutsl"]
+[ext_resource type="Theme" uid="uid://j31xq2aihhti" path="res://assets/themes/default_theme.tres" id="1_t0l0n"]
+[ext_resource type="Script" path="res://scenes/setting.gd" id="1_uutsl"]
 
 [node name="Setting" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_t0l0n")
 script = ExtResource("1_uutsl")
 
 [node name="TextureRect" type="TextureRect" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq3o8s8ddh6gm"]
 
-[ext_resource type="Theme" uid="uid://j31xq2aihhti" path="res://assets/themes/inventory_theme.tres" id="1_dndpc"]
+[ext_resource type="Theme" uid="uid://j31xq2aihhti" path="res://assets/themes/default_theme.tres" id="1_dndpc"]
 [ext_resource type="Texture2D" uid="uid://ne4o774d3f16" path="res://assets/images/UI/blue_cross.png" id="2_63jvr"]
 [ext_resource type="Script" path="res://components/inventory.gd" id="2_hmqq0"]
 
