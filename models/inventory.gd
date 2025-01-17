@@ -6,6 +6,7 @@ class_name Inventory
 signal item_added(item: InventoryItem, slot: int)
 signal item_removed(item: InventoryItem, slot: int)
 signal item_changed(item: InventoryItem, slot: int)
+signal items_swapped(from_slot: int, to_slot: int)
 signal inventory_updated()
 
 # 属性
@@ -110,5 +111,26 @@ func swap_items(from_slot: int, to_slot: int) -> bool:
 	if slots[from_slot]:
 		emit_signal("item_changed", slots[from_slot], from_slot)
 	
+	emit_signal("items_swapped", from_slot, to_slot)
+	emit_signal("inventory_updated")
+	return true
+
+# 移动物品到新位置
+func move_item(from_slot: int, to_slot: int) -> bool:
+	if from_slot < 0 or from_slot >= size or to_slot < 0 or to_slot >= size:
+		return false
+	
+	if slots[to_slot] != null:
+		return swap_items(from_slot, to_slot)
+	
+	var item = slots[from_slot]
+	if item == null:
+		return false
+	
+	slots[from_slot] = null
+	slots[to_slot] = item
+	
+	emit_signal("item_removed", item, from_slot)
+	emit_signal("item_added", item, to_slot)
 	emit_signal("inventory_updated")
 	return true

@@ -58,6 +58,8 @@ CommonTemplate/
 ### 1. 背包系统
 - 基于Godot的Resource系统实现
 - 支持物品栏数据保存
+- 支持物品拖放交换
+- hover提示
 
 ## 如何使用
 

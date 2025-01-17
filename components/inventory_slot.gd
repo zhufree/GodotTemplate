@@ -9,6 +9,8 @@
 
 extends Panel
 
+signal item_dropped(from_slot: int, to_slot: int)
+
 var slot_index: int = 0
 var item: InventoryItem = null
 
@@ -22,6 +24,7 @@ var item: InventoryItem = null
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	mouse_filter = Control.MOUSE_FILTER_STOP
 
 func set_item(new_item: InventoryItem) -> void:
 	item = new_item
@@ -48,24 +51,43 @@ func update_amount() -> void:
 	else:
 		amount_label.text = ""
 
-# 鼠标进入
 func _on_mouse_entered() -> void:
-	if item:
+	if item and not get_viewport().gui_is_dragging():
 		tooltip_name.text = item.name
 		tooltip_type.text = item.type
 		tooltip_description.text = item.description
 		tooltip_panel.show()
 
-# 鼠标离开
 func _on_mouse_exited() -> void:
 	tooltip_panel.hide()
 
-# 点击处理
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			# TODO: 处理点击事件（装备、使用等）
-			pass
-		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			# TODO: 处理右键点击（显示上下文菜单等）
-			pass
+func _get_drag_data(position: Vector2) -> Variant:
+	if item:
+		tooltip_panel.hide()
+		
+		# 创建拖动预览
+		var preview = TextureRect.new()
+		preview.texture = item.icon
+		preview.expand_mode = TextureRect.EXPAND_KEEP_SIZE
+		preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		preview.modulate = Color(1, 1, 1, 0.8)
+		preview.scale = Vector2(0.5, 0.5)
+		
+		var control = Control.new()
+		control.add_child(preview)
+		
+		# 计算预览的实际大小
+		var preview_size = preview.texture.get_size() * preview.scale
+		# 将预览居中到鼠标位置
+		preview.position = -preview_size / 2
+		
+		set_drag_preview(control)
+		return {"slot_index": slot_index}
+	return null
+
+func _can_drop_data(_position: Vector2, _data: Variant) -> bool:
+	return true  # 总是允许拖放，这样鼠标不会显示禁用图标
+
+func _drop_data(position: Vector2, data: Variant) -> void:
+	if data is Dictionary and data.has("slot_index"):
+		item_dropped.emit(data.slot_index, slot_index)

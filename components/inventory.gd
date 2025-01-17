@@ -22,12 +22,14 @@ func _ready() -> void:
 	for i in range(inventory.size):
 		var slot = item_slot_scene.instantiate()
 		slot.slot_index = i
+		slot.item_dropped.connect(_on_item_dropped)
 		grid_container.add_child(slot)
 	
 	# 连接信号
 	inventory.item_added.connect(_on_item_added)
 	inventory.item_removed.connect(_on_item_removed)
 	inventory.item_changed.connect(_on_item_changed)
+	inventory.items_swapped.connect(_on_items_swapped)
 	inventory.inventory_updated.connect(_on_inventory_updated)
 
 # 信号处理函数
@@ -43,14 +45,31 @@ func _on_item_changed(item: InventoryItem, slot: int) -> void:
 	var slot_ui = grid_container.get_child(slot)
 	slot_ui.update_item(item)
 
+func _on_items_swapped(from_slot: int, to_slot: int) -> void:
+	var from_slot_ui = grid_container.get_child(from_slot)
+	var to_slot_ui = grid_container.get_child(to_slot)
+	var from_item = from_slot_ui.item
+	var to_item = to_slot_ui.item
+	
+	from_slot_ui.set_item(to_item)
+	to_slot_ui.set_item(from_item)
+
 func _on_inventory_updated() -> void:
 	for i in range(inventory.size):
 		var slot_ui = grid_container.get_child(i)
-		var item = inventory.get_item(i)
-		if item:
-			slot_ui.set_item(item)
+		if inventory.slots[i]:
+			slot_ui.set_item(inventory.slots[i])
 		else:
 			slot_ui.clear_item()
 
+func _on_item_dropped(from_slot: int, to_slot: int) -> void:
+	inventory.move_item(from_slot, to_slot)
+
 func _on_close_button_pressed() -> void:
 	visible = false
+
+func _can_drop_data(_position: Vector2, _data: Variant) -> bool:
+	return true  # 总是允许拖放，保持鼠标光标不变
+
+func _drop_data(_position: Vector2, _data: Variant) -> void:
+	pass  # 不做任何处理，只是为了防止禁用光标
