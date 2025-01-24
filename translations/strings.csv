@@ -6,6 +6,8 @@ PLAY,Play,开始游戏
 SETTING,Setting,设置
 CREDIT,Credit,制作人员
 QUIT,Quit,退出
+GAME_INTRO,Game Intro,游戏介绍
+TEAM_MEMBER,Team Member,团队成员
 ITEM_ACTION_USE,Use,使用
 ITEM_ACTION_DROP,Drop,丢弃
 ITEM_ACTION_EQUIP,Equip,装备
